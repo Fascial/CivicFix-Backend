@@ -30,7 +30,10 @@ def process_unresolved_issue(doc, db, image_folder, classifier):
         return
 
     try:
-        department = classifier.classify(image_path, image_description)
+        category = classifier.categorize(image_path, image_description)
+        department = classifier.department_selection(
+            image_path, image_description, category
+        )
         print(f"Classifier output for {issue_id}: {department}")
     except Exception as e:
         print(f"Classifier failed for {issue_id}: {e}")
@@ -39,6 +42,7 @@ def process_unresolved_issue(doc, db, image_folder, classifier):
         return
 
     data["department_assigned"] = department
+    data["category"] = category
     data["status"] = "In Progress"
 
     try:
