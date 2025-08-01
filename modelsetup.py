@@ -8,15 +8,6 @@ class Classifier:
     ):
         self.model_url = model_url
         self.model_name = model_name
-        self.responsible_agencies_kashmir = [
-            "PWD",  # Public Works (R&B) Department
-            "JSD",  # Jal Shakti Department
-            "SMC",  # Srinagar Municipal Corporation
-            "SMC",  # Srinagar Municipal Corporation (for streetlights too)
-            "KPDCL",  # Kashmir Power Distribution Corporation Limited
-            "JKFD",  # Jammu & Kashmir Forest Department
-            "DDC/CMO",  # District Development Council / Chief Minister's Office
-        ]
 
         with open("information.txt", "r") as file:
             self.information = file.read()
